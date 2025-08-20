@@ -1,5 +1,6 @@
 //create an array to store book objects
 const myLibrary = [];
+const container = document.querySelector('.container');
 
 //create a constructor for Books
 function Book(title, author, pages, read) {
@@ -24,11 +25,40 @@ function addBookToLibrary(title, author, pages, read) {
 
 //create a function whic loops through array and displays each book
 function displayBooks() {
-  const container = document.querySelector('.container');
   myLibrary.forEach((book) => {
     console.log(book.title);
+    //create a div class card which stores each book
+    let card = document.createElement('div');
+    card.classList.add('card');
+    container.appendChild(card);
+
+    //title
+    let bookTitle = document.createElement('div');
+    bookTitle.classList.add('title');
+    card.appendChild(bookTitle);
+    bookTitle.innerHTML = `Title: ${book.title}`;
+
+    //author
+    let bookAuthor = document.createElement('div');
+    bookAuthor.classList.add('author');
+    card.appendChild(bookAuthor);
+    bookAuthor.innerHTML = `Author: ${book.author}`;
+
+    //pages
+    let bookPages = document.createElement('div');
+    bookPages.classList.add('pages');
+    card.appendChild(bookPages);
+    bookPages.innerHTML = `Page(s): ${book.pages}`;
+
+    //read status
+    let bookRead = document.createElement('div');
+    bookRead.classList.add('read-status');
+    card.appendChild(bookRead);
+    bookRead.innerHTML = `Read Status: ${book.read}`;
   });
 }
+
+console.log(container);
 
 addBookToLibrary('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
 addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', '281', 'not read yet');
