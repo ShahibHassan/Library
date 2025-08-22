@@ -4,13 +4,63 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
+    background-color: #181818;
+    color: #f3f3f3;
 }
 
 .container {
-    border: 1px solid red;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
     width: 100%;
 }
 
 .card {
-    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10px;
+}
+
+.card:nth-child(even) {
+    background-color: #888888;
+}
+
+.card:nth-child(odd) {
+    background-color: #333333;   
+}
+
+
+.card div {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.headings {
+    grid-column: 1 / 5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #e5e5e5;
+    color:#333333;
+    height: 60px;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.section-heading {
+    font-size: 25px;
+    font-weight:  900;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.card, .headings, .nav-bar {
+        margin: 0 50px;
+}
+
+
+.nav-bar{
+    padding: 20px 0;
 }

@@ -26,7 +26,7 @@ function addBookToLibrary(title, author, pages, read) {
 //create a function whic loops through array and displays each book
 function displayBooks() {
   myLibrary.forEach((book) => {
-    console.log(book.title);
+    console.log('ID: ' + book.id + ', Book Title:' + book.title);
     //create a div class card which stores each book
     let card = document.createElement('div');
     card.classList.add('card');
@@ -36,25 +36,25 @@ function displayBooks() {
     let bookTitle = document.createElement('div');
     bookTitle.classList.add('title');
     card.appendChild(bookTitle);
-    bookTitle.innerHTML = `Title: ${book.title}`;
+    bookTitle.innerHTML = book.title;
 
     //author
     let bookAuthor = document.createElement('div');
     bookAuthor.classList.add('author');
     card.appendChild(bookAuthor);
-    bookAuthor.innerHTML = `Author: ${book.author}`;
+    bookAuthor.innerHTML = book.author;
 
     //pages
     let bookPages = document.createElement('div');
     bookPages.classList.add('pages');
     card.appendChild(bookPages);
-    bookPages.innerHTML = `Page(s): ${book.pages}`;
+    bookPages.innerHTML = book.pages;
 
     //read status
     let bookRead = document.createElement('div');
     bookRead.classList.add('read-status');
     card.appendChild(bookRead);
-    bookRead.innerHTML = `Read Status: ${book.read}`;
+    bookRead.innerHTML = book.read;
   });
 }
 
