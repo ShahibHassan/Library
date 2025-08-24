@@ -1,6 +1,10 @@
 //create an array to store book objects
 const myLibrary = [];
 const container = document.querySelector('.container');
+const dialog = document.getElementById('book-dialog');
+const newBookBtn = document.getElementById('new-book-btn');
+const closeDialogBtn = document.getElementById('close-dialog');
+const form = document.getElementById('book-form');
 
 //create a constructor for Books
 function Book(title, author, pages, read) {
@@ -14,11 +18,24 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+function newBook() {
+  //open dialog on newbook btn
+  newBookBtn.addEventListener('click', () => {
+    dialog.showModal();
+  });
+
+  //cancel dialog
+  closeDialogBtn.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  //handle form submit
+}
+
 //create a function addBookToLibrary()
 function addBookToLibrary(title, author, pages, read) {
   //create a book from those arguments
   const book = new Book(title, author, pages, read);
-  // console.log(book);
   //store book into an array
   myLibrary.push(book);
 }
@@ -58,12 +75,13 @@ function displayBooks() {
   });
 }
 
-console.log(container);
-
+// adding example books in
 addBookToLibrary('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
 addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', '281', 'not read yet');
 addBookToLibrary('Pride and Prejudice', 'Jane Austen', '432', 'read');
 
-// console.log(myLibrary);
-
+//calling function to dispaly books
 displayBooks();
+
+//calling function for newbook btn
+newBook();

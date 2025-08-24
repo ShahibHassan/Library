@@ -7,10 +7,10 @@
     <title>Library System</title>
 </head>
 <body>
-    
     <div class="container">
         <div class="nav-bar">
             <h1 class="title">The Library App</h1>
+            <button id="new-book-btn">New Book</button>
         </div>
         <div class="headings">
             <div class="section-heading">Title</div>
@@ -19,6 +19,36 @@
             <div class="section-heading">Read Status</div>
         </div>
     </div>
+
+    <div class="form">
+        <dialog id="book-dialog">
+            <p>Add a new book</p>
+            <form id = "book-form">
+                <input type="text" name="book-title" id="book-title" placeholder="Book Title">
+                <input type="text" name="author-name" id="author-name" placeholder="Author Name">
+                <input type="text" name="book-pages" id="book-pages" placeholder="Page(s)">
+                <div class="read-status-check">
+                    <p>Read Status</p>
+                    <div class="status-options">
+                            
+                        <label>
+                            <input type="radio" name="read-status" id="read-status">
+                            Read
+                        </label>
+                        <label>
+                            <input type="radio" name="read-status" id="not-read-status">
+                            Not read yet
+                        </label>
+                    </div>
+    
+                </div>
+    
+                <input type="submit" value="Submit">
+                <button type="button" id="close-dialog">Cancel</button>
+            </form>
+        </dialog>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
