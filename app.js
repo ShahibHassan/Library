@@ -35,7 +35,6 @@ function displayBooks() {
   container.querySelectorAll('.card').forEach((card) => card.remove());
 
   myLibrary.forEach((book) => {
-    //console.log('ID: ' + book.id + ', Book Title:' + book.title);
     //create a div class card which stores each book
     let card = document.createElement('div');
     card.classList.add('card');
@@ -93,7 +92,6 @@ function newBook() {
     dialog.close();
   });
 
-  //handle form submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -157,7 +155,6 @@ function darkMode() {
 }
 
 function loadApp() {
-  // adding example books in
   addBookToLibrary('The Hobbit', 'J.R.R Tolkien', '295', 'Not Yet Read');
   addBookToLibrary(
     'To Kill a Mockingbird',
@@ -170,9 +167,6 @@ function loadApp() {
   displayBooks();
   newBook();
   libraryActions();
-
-  // removeBooks();
-  //changeReadStatus();
   darkMode();
 }
 
