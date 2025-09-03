@@ -92,7 +92,7 @@ function newBook() {
     dialog.close();
   });
 
-gi  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formTitle = document.getElementById('book-title').value;
