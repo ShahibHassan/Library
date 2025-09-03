@@ -1,33 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    font-family: "IBM Plex Sans", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 body {
     display: flex;
     max-width: 100vw;
     height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: #181818;
-    color: #f3f3f3;
+    background-color: white;
+    color: black;
+    
 }
 
+body.darkmode-enabled {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+
 .container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
-    width: 100%;
+    width: 100%;  
 }
 
 .card {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(6,1fr);
     padding: 10px;
+    align-items: center;
+    border: 1px solid black;
 }
 
-.card:nth-child(even) {
-    background-color: #888888;
+body.darkmode-enabled .container .card{
+    border: 1px solid white;
 }
 
-.card:nth-child(odd) {
-    background-color: #333333;   
-}
 
+
+.card:last-child{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: 2px solid black;
+}
 
 .card div {
     padding: 5px;
@@ -39,13 +57,21 @@ body {
 .headings {
     grid-column: 1 / 5;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #e5e5e5;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: lightblue;
+    border:1px solid black;
     color:#333333;
     height: 60px;
     align-items: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+}
+
+/*Change .headings color when in darkmode*/
+body.darkmode-enabled .headings {
+    border: 1px solid white;
+    background-color:  #1e1e1e;
+    color: #e0e0e0;
 }
 
 .section-heading {
@@ -68,19 +94,111 @@ body {
     padding: 20px 0;
 }
 
-.new-book-btn {
-    font-size: 18px;
-    height: 40px;
-    margin-right: 50px;
-}
 
 form {
     display: flex;
     flex-direction: column;
 }
 
-form input {
-    margin-bottom: 20px;
+input[type='text']:valid, input[type='number']:valid {
+    border: 2px solid green;
+}
+
+dialog {
+    width: 500px;
+    max-width: 95%;
+    border: none;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+#dialog-title {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#dialog-title::after {
+    content: '';
+    display: block;
+    width: 175px;
+    height: 3px;
+    background: lightblue;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+dialog input[type='text']:focus, dialog input[type='number']:focus{
+    border: 2px solid lightblue;
+    outline: none;
+    background-color: #f0faff;
+}
+
+
+
+form input[type='text'],
+form input[type='number'],
+form label {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+form label {
+    margin: 0px;
+}
+
+form input[type='submit'], form button#close-dialog {
+    font-size: 18px;
+    width: 180px;
+    height: 55px;
+    margin-top: 15px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1;
+}
+
+form input[type='submit']{
+    background-color: lightblue;
+    color: black;
+    font-weight: 500;
+}
+
+form input[type='submit']:hover {
+    background-color: #87ceeb;
+    font-weight: 700;
+}
+
+form button#close-dialog {
+    background-color: #e0e0e0;
+    color:  #333;
+    font-weight: 600;
+}
+
+form button#close-dialog:hover{
+    background-color: #f44336;
+    color:white;
+    font-weight: 700;
+}
+
+form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .read-status-check {
@@ -95,14 +213,112 @@ form input {
 
 .status-options {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.status-options label {
+    display: flex;
     align-items: center;
-    height: 60px;
+    gap: 10px;
+    cursor: pointer;
 }
 
 dialog {
     position: fixed;
-    top: 25%;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    justify-self: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    background-color: white;
 }
 
 
+button, .card {
+    font-size: 18px;
+}
+
+#new-book-btn:hover,  .change-book-status:hover{
+    background-color: lightblue;
+}
+
+.remove-book-btn:hover{
+    background-color: red;
+}
+
+.buttons button {
+    font-weight: 700;
+    width: 150px;
+    height: 50px;
+}
+
+body.darkmode-enabled button {
+    background-color: #333333;
+    color: #e0e0e0;
+}
+
+#darkmode-btn {
+    margin-left: 20px;
+    width: 180px;
+}
+
+#darkmode-btn:hover {
+    box-shadow: 0 0 10px #1e1e1e;
+}
+/*Button in darkmode*/
+
+
+body.darkmode-enabled #darkmode-btn:hover {
+    box-shadow: 0 0 10px #e0e0e0;
+}
+
+body.darkmode-enabled dialog input, body.darkmode-enabled dialog .status-options label{
+    background-color: #333333;
+}
+
+body.darkmode-enabled dialog {
+    background-color: #1e1e1e;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+}
+
+body.darkmode-enabled dialog input::placeholder, body.darkmode-enabled dialog .status-options label, body.darkmode-enabled dialog .read-status-check p {
+    color: #e0e0e0;
+}
+
+body.darkmode-enabled dialog input[type='submit'] {
+    color: #e0e0e0;
+}
+
+body.darkmode-enabled dialog input[type='submit']:hover {
+    color: black;
+}
+
+body.darkmode-enabled #dialog-title {
+    color: #e0e0e0;
+}
+
+body.darkmode-enabled dialog input[type='text']:focus {
+    border: 2px solid #87ceeb;
+    background-color: #2a2a2a;
+}
+
+body.darkmode-enabled form button#close-dialog{
+    background-color: #333333;
+    color: #e0e0e0;
+}
+
+body.darkmode-enabled form button#close-dialog {
+    background-color: #333333;
+    color: #e0e0e0;
+}
+body.darkmode-enabled form button#close-dialog:hover {
+    background-color: #f44336;
+    color: white;
+}

@@ -10,41 +10,47 @@
     <div class="container">
         <div class="nav-bar">
             <h1 class="title">The Library App</h1>
-            <button id="new-book-btn">New Book</button>
+            <div class="buttons">
+                <button id="new-book-btn" class="nav-bar-btns">New Book</button>
+                <button id="darkmode-btn" class = "nav-bar-btns">Enable DarkMode</button>
+            </div>
         </div>
         <div class="headings">
             <div class="section-heading">Title</div>
             <div class="section-heading">Author</div>
             <div class="section-heading">Pages</div>
             <div class="section-heading">Read Status</div>
+            <div class="section-heading">Change Read Status</div>
+            <div class="section-heading">Remove</div>
         </div>
     </div>
 
     <div class="form">
         <dialog id="book-dialog">
-            <p>Add a new book</p>
+            <h2 id="dialog-title">Add a new book</h2>
             <form id = "book-form">
-                <input type="text" name="book-title" id="book-title" placeholder="Book Title">
-                <input type="text" name="author-name" id="author-name" placeholder="Author Name">
-                <input type="text" name="book-pages" id="book-pages" placeholder="Page(s)">
+                <input type="text" name="book-title" id="book-title" placeholder="Book Title" required>
+                <input type="text" name="author-name" id="author-name" placeholder="Author Name" required>
+                <input type="number" name="book-pages" id="book-pages" placeholder="Page(s)" required>
                 <div class="read-status-check">
                     <p>Read Status</p>
                     <div class="status-options">
                             
                         <label>
-                            <input type="radio" name="read-status" id="read-status">
+                            <input type="radio" name="read-status" id="read" value="Read">
                             Read
                         </label>
                         <label>
-                            <input type="radio" name="read-status" id="not-read-status">
+                            <input type="radio" name="read-status" id="not-read" value="Not Yet Read" checked>
                             Not read yet
                         </label>
                     </div>
     
                 </div>
-    
-                <input type="submit" value="Submit">
-                <button type="button" id="close-dialog">Cancel</button>
+                <div class="form-actions">
+                    <input type="submit" value="Add Book">
+                    <button type="button" id="close-dialog">Cancel</button>
+                </div>
             </form>
         </dialog>
     </div>
