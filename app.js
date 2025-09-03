@@ -164,6 +164,7 @@ function loadApp() {
   );
   addBookToLibrary('Pride and Prejudice', 'Jane Austen', '432', 'Read');
 
+  //call functions
   displayBooks();
   newBook();
   libraryActions();
